@@ -7,10 +7,40 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <header>
+        <h1>REST webbtjänst</h1>
+    </header>
     <div class="container">
-        <h1>Hi there!</h1>
+        <h2>Kurser</h2>
+        <div id="courses">
+            <!-- Courses from database -->
+        </div>
 
-        <p>Placeholder text - write me like one of your french girls</p>
+        <h2>Lägg till klass</h2>
+
+        <form>
+            <label for="name">Kursnamn:</label>
+            <br>
+            <input type="text" name="name" id="name">
+            <br>
+
+            <label for="code">Kurskod:</label>
+            <br>
+            <input type="text" name="code" id="code">
+            <br>
+
+            <label for="progression">Progression:</label>
+            <br>
+            <input type="text" name="progression" id="progression">
+            <br>
+
+            <label for="syllabus">Kursplan:</label>
+            <br>
+            <input type="text" name="syllabus" id="syllabus">
+            <br>
+
+            <input type="submit" value="Lägg till kurs" id="addCourse">
+        </form>
         
     </div>
 

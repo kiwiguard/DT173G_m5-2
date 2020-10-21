@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "gulpfiles.js",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "browser-sync": "^2.26.12",
     "gulp": "^4.0.2",
