@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kurser</title>
+    <title>PHP CRUD</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -12,13 +12,20 @@
     </header>
     <div class="container">
         <h2>Kurser</h2>
-        <div id="courses">
-            <!-- Courses from database -->
-        </div>
+        <table id="courses">
+            <tr>
+                <th>Kurskod</th>
+                <th>Kursnamn</th>
+                <th>Progression</th>
+                <th>Kursplan</th>
+                <th></th>
+            </tr>
+            <tbody id="course-output"></tbody>
+        </table>
 
         <h2>Lägg till klass</h2>
 
-        <form method="POST" action="" id="form">
+        <form method="POST" action="process.php" id="form">
             <label for="name">Kursnamn:</label>
             <br>
             <input type="text" name="name" id="name">
