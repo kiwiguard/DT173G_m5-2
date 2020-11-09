@@ -1,2 +1,27 @@
 /* Styles for components - buttons, navbars, cards, reusables */
 
+input[type=submit] {
+    width: 160px;
+    padding: 0.5em 1em;
+    font-size: 1rem;
+    border: 2px solid $dusty-rose;
+    background-color: $primary-color !important;
+    color: $font-color;
+    cursor: pointer;
+    
+}
+
+button {
+    font-size: 1rem;
+    padding: 0.2em 0.5em;
+    border: 1px solid $dusty-rose;
+    background-color: $primary-color !important;
+    color: $font-color;
+    cursor: pointer;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: bold;
+
+}

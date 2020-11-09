@@ -1,1 +1,41 @@
 /* Styles related to layout */
+
+.container {
+    max-width: 1090px;
+    margin: 0 auto;
+    padding-top: 2em;
+}
+
+.flexbox {
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+    gap: 2em;
+}
+
+#updateDiv {
+    margin-top: 1em;
+}
+
+.form-row {
+    width: 45%;
+
+}
+
+input[type=text] {
+    margin: 1em 0;
+    padding: 0.5em 0.5em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th,
+td {
+    text-align: left;
+    padding: 1em 1em 1em 0;
+    border-bottom: 1px solid $gray;
+}

@@ -2,14 +2,38 @@
 
 
 /* Variables */
-$font-stack: Helvetica, sans-serif;
-$primary-color: #fff5ee;
-$font-color: #637373;
-
+$heading-stack: 'Anton', sans-serif;
+$font-stack: 'Signika', Sans-Serif;
+$primary-color: #1a1a1d;
+$font-color: #dddddd;
+$link-color: #c3073f;
+$gray: #4e4e50;
+$dusty-rose: #6f2232;
+$fushia: #950740;
 
 /* Typography */
 body {
     background-color: $primary-color;
-    font: 1.6rem $font-stack;
+    font: 1rem $font-stack;
     color: $font-color;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    
+    :hover {color: $dusty-rose;}
+    :visited {color: $link-color;}
+}
+
+h1 {
+    font-family: $heading-stack;
+    color: $fushia;
+    font-size:3.6rem;
+    letter-spacing: 0.2rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin: 2em 0 1em 0;
 }

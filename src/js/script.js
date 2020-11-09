@@ -11,11 +11,12 @@ let name = document.getElementById("name");
 let progression = document.getElementById("progression");
 let syllabus = document.getElementById("syllabus");
 
-const methods = ['GET', 'POST', 'PUT', 'DELETE'];
-
 //eventhandlers
 window.addEventListener('load', getCourses);
-addButton.addEventListener('click', addCourse);
+addButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    addCourse();
+});
 
 //functions
 function getCourses() {
@@ -59,6 +60,12 @@ function addCourse() {
     }).catch(error => {
         console.log('Error: ', error);
     })
+
+    //Clear inputform
+    name.value = '';
+    code.value = '';
+    progression.value = '';
+    syllabus.value = '';
 }
 
 //Function to delete course from database
@@ -75,40 +82,47 @@ function deleteCourse(id) {
 //Get selected course info to update
 function updateThisCourse(id) {
     updateDiv.innerHTML = '';
-    fetch('http://localhost/DT173G_m5-1/api?id=' + id) 
+    fetch('http://localhost/DT173G_m5-1/api?id=' + id)
     .then(response => response.json())
     .then(updateDiv.style.display = 'block')
     .then(course => {
         updateDiv.innerHTML +=
         `
         <form method="get" id="updateForm">
-        <label for="name">Kursnamn:</label>
-        <br>
-        <input type="text" name="name" id="inname" value="${course.name}">
-        <br>
-
-        <label for="code">Kurskod:</label>
-        <br>
-        <input type="text" name="code" id="incode" value="${course.code}">
-        <br>
-
-        <label for="progression">Progression:</label>
-        <br>
-        <input type="text" name="progression" id="inprogression" value="${course.progression}"">
-        <br>
-
-        <label for="syllabus">Kursplan:</label>
-        <br>
-        <input type="text" name="syllabus" id="insyllabus" value="${course.syllabus}">
-        <br>
-
-        <input type="submit" value="Uppdatera kurs" id="updateButton" onClick="updateCourse(${course.id})"><br>
-        <input type="submit" value="Avbryt" id="closeButton" onClick="closeDiv()">
+            <ul class="flexbox">
+                <li class="form-row">
+                    <label for="name">Kursnamn:</label>
+                    <br>
+                    <input type="text" name="name" id="inname" value="${course.name}">
+                    <br>
+                </li>
+                <li class="form-row">
+                    <label for="code">Kurskod:</label>
+                    <br>
+                    <input type="text" name="code" id="incode" value="">
+                    <br>
+                </li>
+                <li class="form-row">
+                    <label for="progression">Progression:</label>
+                    <br>
+                    <input type="text" name="progression" id="inprogression" value="">
+                    <br>
+                </li>
+                <li class="form-row">
+                    <label for="syllabus">Kursplan:</label>
+                    <br>
+                    <input type="text" name="syllabus" id="insyllabus" value="">
+                    <br>
+                </li>
+                <li class="form-row flexbox">
+                    <input type="submit" value="Uppdatera kurs" id="updateButton" onClick="updateCourse(${course.id})"><br>
+                    <input type="submit" value="Avbryt" id="closeButton" onClick="closeDiv()">
+                </li>
+            </ul>
         </form>
         `
-    })
+    });
 }
-
 
 //Function to update course info
 function updateCourse(id) {
@@ -136,7 +150,3 @@ function updateCourse(id) {
         console.log('Error: ', error);
     })
 }
-
-
-//on load, fetch courses and dislpay
-window.onload = getCourses();
