@@ -10,6 +10,7 @@ let code = document.getElementById("code");
 let name = document.getElementById("name");
 let progression = document.getElementById("progression");
 let syllabus = document.getElementById("syllabus");
+const stdurl = 'http://localhost/dt173g_m5-1/api'
 
 //eventhandlers
 window.addEventListener('load', getCourses);
@@ -22,7 +23,7 @@ addButton.addEventListener('click', (e) => {
 function getCourses() {
     courseEl.innerHTML = '';
 
-    fetch('http://localhost/dt173g_m5-1/api')
+    fetch(stdurl)
     .then(response => response.json())
     .then(data => {
         data.forEach(course => {
@@ -52,7 +53,7 @@ function addCourse() {
 
     let course = {'name' : name, 'code' : code, 'progression' : progression, 'syllabus' : syllabus};
 
-    fetch('http://localhost/DT173G_m5-1/api', {
+    fetch(stdurl, {
         method: 'POST',
         body: JSON.stringify(course)
     }).then(response => response.json()).then(data => {
@@ -70,7 +71,7 @@ function addCourse() {
 
 //Function to delete course from database
 function deleteCourse(id) {
-    fetch('http://localhost/DT173G_m5-1/api?id=' + id, {
+    fetch(stdurl + '?id=' + id, {
         method: "DELETE"
     }).then(response => response.json()).then(data => {
         getCourses();
@@ -81,7 +82,7 @@ function deleteCourse(id) {
 
 //Get selected course info to update
 function updateThisCourse(id) {
-    fetch('http://localhost/DT173G_m5-1/api?id=' + id)
+    fetch(stdurl + '?id=' + id)
     .then(response => response.json())
     .then(updateDiv.style.display = 'block')
     .then(course => {
@@ -137,7 +138,7 @@ function updateCourse(id) {
 
     let course = {'id' : id, 'name' : inname, 'code' : incode, 'progression' : inprogression, 'syllabus' : insyllabus};
 
-    fetch('http://localhost/DT173G_m5-1/api?id=' + id, {
+    fetch(stdurl + '?id=' + id, {
         method : 'PUT',
         body: JSON.stringify(course)
     })
