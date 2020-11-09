@@ -81,7 +81,6 @@ function deleteCourse(id) {
 
 //Get selected course info to update
 function updateThisCourse(id) {
-    updateDiv.innerHTML = '';
     fetch('http://localhost/DT173G_m5-1/api?id=' + id)
     .then(response => response.json())
     .then(updateDiv.style.display = 'block')
@@ -93,35 +92,35 @@ function updateThisCourse(id) {
                 <li class="form-row">
                     <label for="name">Kursnamn:</label>
                     <br>
-                    <input type="text" name="name" id="inname" value="${course.name}">
+                    <input type="text" name="name" id="inname" value="${course[0].name}">
                     <br>
                 </li>
                 <li class="form-row">
                     <label for="code">Kurskod:</label>
                     <br>
-                    <input type="text" name="code" id="incode" value="">
+                    <input type="text" name="code" id="incode" value="${course[0].code}">
                     <br>
                 </li>
                 <li class="form-row">
                     <label for="progression">Progression:</label>
                     <br>
-                    <input type="text" name="progression" id="inprogression" value="">
+                    <input type="text" name="progression" id="inprogression" value="${course[0].progression}">
                     <br>
                 </li>
                 <li class="form-row">
                     <label for="syllabus">Kursplan:</label>
                     <br>
-                    <input type="text" name="syllabus" id="insyllabus" value="">
+                    <input type="text" name="syllabus" id="insyllabus" value="${course[0].syllabus}">
                     <br>
                 </li>
                 <li class="form-row flexbox">
-                    <input type="submit" value="Uppdatera kurs" id="updateButton" onClick="updateCourse(${course.id})"><br>
+                    <input type="submit" value="Uppdatera kurs" id="updateButton" onClick="updateCourse(${course[0].id})"><br>
                     <input type="submit" value="Avbryt" id="closeButton" onClick="closeDiv()">
                 </li>
             </ul>
         </form>
         `
-    });
+    })
 }
 
 //Function to update course info
