@@ -6,11 +6,12 @@
 let courseEl = document.getElementById("course-output");
 let addButton = document.getElementById("addCourse");
 let updateDiv = document.getElementById("updateDiv");
-let code = document.getElementById("code");
-let name = document.getElementById("name");
-let progression = document.getElementById("progression");
-let syllabus = document.getElementById("syllabus");
-const stdurl = 'http://localhost/dt173g_m5-1/api'
+let codeInput = document.getElementById("code");
+let nameInput = document.getElementById("name");
+let progressionInput = document.getElementById("progression");
+let syllabusInput = document.getElementById("syllabus");
+const stdurl = 'https://dt173g.susanne-nilsson.se/src/api.php'
+// const stdurl = 'http://localhost/DT173G_m5-1/api.php'
 
 //eventhandlers
 window.addEventListener('load', getCourses);
@@ -46,10 +47,10 @@ function getCourses() {
 
 //Function to add course to database
 function addCourse() {
-    name = name.value;
-    code = code.value;
-    progression = progression.value;
-    syllabus = syllabus.value;
+    let name = nameInput.value;
+    let code = codeInput.value;
+    let progression = progressionInput.value;
+    let syllabus = syllabusInput.value;
 
     let course = {'name' : name, 'code' : code, 'progression' : progression, 'syllabus' : syllabus};
 
@@ -63,10 +64,10 @@ function addCourse() {
     })
 
     //Clear inputform
-    name.value = '';
-    code.value = '';
-    progression.value = '';
-    syllabus.value = '';
+    nameInput.value = '';
+    codeInput.value = '';
+    progressionInput.value = '';
+    syllabusInput.value = '';
 }
 
 //Function to delete course from database
