@@ -4,14 +4,7 @@ The calls are made with JavaScript and Fetch.
 
 A live version of the applikation can be found at: https://dt173g.susanne-nilsson.se
 
-## Usage
-For use of this code locally, please clone from:
-https://github.com/kiwiguard/DT173G_m5-2.git
-
-sourcecode is found under /src, and is supported by gulp for an automated build pipeline.
-Run with
-
-## Installation
+## Installation and usage
 To install and use this automated environment locally, follow these steps:
 1. Make sure you've got node.js and npm installed.
 2. Clone project from repository
